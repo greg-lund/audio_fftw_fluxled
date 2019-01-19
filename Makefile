@@ -2,8 +2,10 @@
 
 CC = g++
 CFLAGS = -std=c++17
+SOURCE = port_audio_stream.cc test_port.cc
 INCLUDEPATH = /opt/local/include
 LINKPATH = /opt/local/lib
+LFLAGS = -lfftw3f -lportaudio
 
 test_port: test_port.cc
-	$(CC) $(CFLAGS) -I$(INCLUDEPATH) -L$(LINKPATH) port_audio_stream.cc test_port.cc -o test_port -lfftw3f -lportaudio
+	$(CC) $(CFLAGS) -I$(INCLUDEPATH) -L$(LINKPATH) $(SOURCE) -o test_port $(LFLAGS)
